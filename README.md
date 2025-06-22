@@ -6,27 +6,36 @@ This project leverages **machine learning** to model and predict **blood glucose
 
 ## 🧠 Motivation
 
-My objective was to develop a machine learning tool to predict diabetes and improve early detection in Eritrean communities where diagnosis is often delayed. For this, I used the Pima Indians Diabetes Dataset, which provides medical features relevant to Type 2 diabetes prediction.
+Early diabetes detection is crucial but challenging due to **manual diagnosis limitations**. Additionally, monitoring dietary sugar intake is vital for diabetes management. The project addresses:
+Predicting diabetes based on medical features.
+Recognizing foods via speech or images to estimate sugar content.
+
+**Dataset**
+Pima Indians Diabetes Dataset (UCI Repository):768 samples, 8 features (Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age).
+Binary target: Outcome (0 = non-diabetic, 1 = diabetic).
+Challenges: Zero values in features (e.g., Glucose, BMI) require preprocessing.
 
 ## 🔬 Project Details
 
 - **Data Sources**: Public datasets (nutrition, glucose monitoring, insulin levels)
 - **Diabetes Prediction**:
 The dataset is primarily used to develop and test machine learning models for predicting whether an individual has diabetes based on medical features such as Glucose, BMI, Age, Pregnancies, BloodPressure, SkinThickness, Insulin, and DiabetesPedigreeFunction. The binary target (Outcome: 0 = non-diabetic, 1 = diabetic) makes it ideal for binary classification tasks.
-Medical Research:
-It provides insights into risk factors for diabetes, particularly among the Pima Indian population, which has a high prevalence of type 2 diabetes. Researchers use it to study correlations between features (e.g., high glucose or BMI) and diabetes onset.
-Educational Tool:
-The dataset is a staple in machine learning courses and tutorials due to its simplicity, small size (768 samples, 8 features), and real-world relevance. It’s used to teach concepts like data preprocessing, model training, evaluation, and feature engineering.
-Algorithm Benchmarking:
-Researchers and practitioners use it to compare the performance of different algorithms (e.g., SVM, Random Forest, Neural Networks) or techniques (e.g., feature scaling, hyperparameter tuning) on a standard dataset.
-Data Preprocessing Practice:
-The dataset contains challenges like zero values in biologically implausible features (e.g., Glucose, BMI), making it a good case study for handling missing or invalid data through imputation or other techniques.
-Applications:
 
+### Medical Research:
+It provides insights into risk factors for diabetes, particularly among the Pima Indian population, which has a high prevalence of type 2 diabetes. Researchers use it to study correlations between features (e.g., high glucose or BMI) and diabetes onset.
+### Educational Tool:
+The dataset is a staple in machine learning courses and tutorials due to its simplicity, small size (768 samples, 8 features), and real-world relevance. It’s used to teach concepts like data preprocessing, model training, evaluation, and feature engineering.
+### Algorithm Benchmarking:
+Researchers and practitioners use it to compare the performance of different algorithms (e.g., SVM, Random Forest, Neural Networks) or techniques (e.g., feature scaling, hyperparameter tuning) on a standard dataset.
+### Data Preprocessing Practice:
+The dataset contains challenges like zero values in biologically implausible features (e.g., Glucose, BMI), making it a good case study for handling missing or invalid data through imputation or other techniques.
+
+### Applications:
 Building predictive models for early diabetes detection.
 Developing healthcare tools for risk assessment.
 Studying feature importance in diabetes risk (e.g., glucose levels or family history).
 Testing new machine learning algorithms or preprocessing methods.
+
 - **Technologies Used**:
   - Python (Pandas, Scikit-learn, Matplotlib)
   - Jupyter Notebook
@@ -40,16 +49,21 @@ Testing new machine learning algorithms or preprocessing methods.
 
 ## 📈 Key Outcomes
 
-- Demonstrated **how food composition affects glucose spikes**
-- Identified **high-risk combinations** using model insights
-- Shared visualizations to raise awareness about **diet-related glucose changes**
-- Inspired non-technical audiences to think about **preventive health**
+Diabetes Prediction:Loaded and explored the dataset using pandas.
+Split data into 80% training and 20% testing sets (train_test_split with stratify).
+Trained a Support Vector Machine (SVM) classifier with a linear kernel (sklearn.svm.SVC).
 
-## ✅ Results
+Proposed Food Recognition:Speech Recognition: Use speech_recognition or fine-tuned Wav2Vec (PyTorch) to identify foods from voice input (e.g., “apple”).
+Image Recognition: Use ResNet50 (PyTorch) fine-tuned on a food dataset (e.g., Food-101) to identify foods from images.
+Sugar Estimation: Query USDA FoodData Central API or a local database to estimate sugar content.
+Integration: Add estimated sugar intake as a feature to enhance the diabetes prediction model.
 
-- Achieved up to **85% prediction accuracy**
-- Created clear **plots showing glucose fluctuations** with food inputs
-- Used **feature importance scores** to highlight which nutrients impact glucose most
+## ✅ Technologies
+
+Python Libraries: pandas, numpy, sklearn, speech_recognition, opencv-python, tensorflow, torch, torchvision.
+Machine Learning: SVM (sklearn), potential for lazypredict to compare models.
+Deep Learning: TensorFlow/PyTorch for speech/image recognition.
+APIs: USDA FoodData Central for nutritional data.
 
 ## 📎 How to Use
 
